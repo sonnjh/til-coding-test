@@ -37,9 +37,9 @@ public class Solution {
 //        System.out.println("1) reserve: " + Arrays.toString(reserve));
 
         // 2) lost 배열과 reserve 배열의 원소를 비교한다.
-        for (int i = 0; i < lost.length; i++) {
+        for (int k : lost) {
             for (int j = 0; j < reserve.length; j++) {
-                if (lost[i] - 1 == reserve[j] || lost[i] + 1 == reserve[j]) {
+                if (k - 1 == reserve[j] || k + 1 == reserve[j]) {
                     reserve[j] = -1;
                     answer++;
                     break;
