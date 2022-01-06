@@ -33,7 +33,6 @@ public class Solution {
                 temp[idx++] = array[j]; // idx: 0 ~ 3
             }
             Arrays.sort(temp);
-
             answer[i] = temp[choose];
         }
 

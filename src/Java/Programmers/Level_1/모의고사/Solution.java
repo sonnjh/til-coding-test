@@ -39,7 +39,6 @@ public class Solution {
         int size = 0;
         // scores 배열에서 가장 높은 점수를 찾는다.
         int maxScore = Math.max(scores[0], Math.max(scores[1], scores[2]));
-
         // scores 배열은 수포자 1, 2, 3번의 점수가 순서대로 들어있다.
         for (int i = 0; i < scores.length; i++) {
             if (scores[i] == maxScore) {
