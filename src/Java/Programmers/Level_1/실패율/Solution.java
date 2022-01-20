@@ -26,16 +26,17 @@ public class Solution {
     // 5번 스테이지의 실패율: 0/1 = 0.0
 
     static int[] solution(int N, int[] stages) {
-        int total = stages.length;
-        HashMap<Integer, Integer> counts = new HashMap<>();
-        HashMap<Integer, Double> rates = new HashMap<>();
-        double[][] results = new double[N][2];
+        int total = stages.length; // 총 인원
+        HashMap<Integer, Integer> counts = new HashMap<>(); // 스테이지별 인원수
+        HashMap<Integer, Double> rates = new HashMap<>(); // 스테이지별 실패율
+        double[][] results = new double[N][2]; //  스테이지별 실패율 (정렬하기 위한 배열)
         int[] answer = new int[N];
 
         // 스테이지별 인원수를 센다.
         for (int stage : stages) {
             counts.put(stage, counts.getOrDefault(stage, 0) + 1);
         }
+        System.out.println("Counts:" + counts);
 
         // 스테이지별 실패율을 계산한다.
         for (int i = 1; i <= N; i++) {
@@ -45,12 +46,14 @@ public class Solution {
                 total = total - count;
             }
         }
+        System.out.println("Rates:" + rates);
 
         // 스테이지별 실패율을 결과 배열에 세팅한다. (정렬하기 위함)
         for (int i = 1; i <= N; i++) {
             results[i - 1][0] = i;
-            results[i - 1][1] = rates.getOrDefault(i, 0.0);
+            results[i - 1][1] = rates.getOrDefault(i, 0.0); // 실패 인원이 없는 스테이지는 실패율을 0.0으로 초기화한다.
         }
+        System.out.println("Results 1:" + Arrays.deepToString(results));
 
         // 실패율 내림차순으로 정렬한다. (실패율이 같으면 번호 오름차순으로 정렬한다.)
         Arrays.sort(results, (o1, o2) -> {
@@ -59,6 +62,7 @@ public class Solution {
             }
             return -Double.compare(o1[1], o2[1]);
         });
+        System.out.println("Results 2:" + Arrays.deepToString(results));
 
         for (int i = 0; i < N; i++) {
             answer[i] = (int) results[i][0];
