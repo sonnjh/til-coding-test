@@ -26,15 +26,12 @@ public class Solution {
             nums[i] = String.valueOf(numbers[i]);
         }
 
-        Arrays.sort(nums, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                // System.out.printf("%s : %s\n", o2 + o1, o1 + o2);
-                // (o2 + o1) > (o1 + o2) -> 1
-                // (o2 + o1) = (o1 + o2) -> 0
-                // (o2 + o1) < (o1 + o2) -> -1
-                return (o2 + o1).compareTo(o1 + o2);
-            }
+        Arrays.sort(nums, (o1, o2) -> {
+            // System.out.printf("%s : %s\n", o2 + o1, o1 + o2);
+            // (o2 + o1) > (o1 + o2) -> 1
+            // (o2 + o1) = (o1 + o2) -> 0
+            // (o2 + o1) < (o1 + o2) -> -1
+            return (o2 + o1).compareTo(o1 + o2);
         });
 
         answer = String.join("", nums);
