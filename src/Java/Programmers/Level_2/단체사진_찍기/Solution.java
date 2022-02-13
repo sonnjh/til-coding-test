@@ -3,6 +3,7 @@ package Java.Programmers.Level_2.단체사진_찍기;
 import java.util.Arrays;
 import java.util.HashMap;
 
+// https://jisunshine.tistory.com/145
 public class Solution {
     public static void main(String[] args) {
         System.out.println(solution(2, new String[]{"N~F=0", "R~T>2"})); // 3648
